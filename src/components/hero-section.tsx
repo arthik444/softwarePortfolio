@@ -52,13 +52,13 @@ export function HeroSection() {
               className="mb-8"
             >
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-gradient mb-6 text-shadow">
-                Alex Chen
+                Karthik Vemireddy
               </h1>
               <div className="text-xl md:text-2xl text-muted-foreground font-light mb-4">
-                Senior Software Engineer
+                Software Engineer
               </div>
               <div className="text-base text-muted-foreground/80 mono-font">
-                San Francisco, CA
+                Tallahassee, FL
               </div>
             </motion.div>
 

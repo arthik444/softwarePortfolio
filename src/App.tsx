@@ -10,6 +10,12 @@ import { FloatingSidebar } from "./components/floating-sidebar";
 import { CursorFollower } from "./components/cursor-follower";
 import { ScrollProgress } from "./components/scroll-progress";
 import { Toaster } from "./components/ui/sonner";
+import { GitHubStats } from "./components/github-stats";
+import { EnhancedBlogSection } from "./components/enhanced-blog-section";
+import { PerformanceMetrics } from "./components/performance-metrics";
+import { Interactive3DScene } from "./components/interactive-3d-scene";
+import { CodePlayground } from "./components/code-playground";
+import { InteractiveSkillsComparison } from "./components/interactive-skills-comparison";
 
 export default function App() {
   return (
@@ -20,17 +26,19 @@ export default function App() {
       
       {/* Floating decorative elements */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-3xl floating-element" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-gradient-to-r from-emerald-500/10 to-purple-500/10 blur-3xl floating-element-delayed" />
-        <div className="absolute top-3/4 left-1/6 w-32 h-32 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 blur-2xl floating-element" />
+        <Interactive3DScene />
       </div>
 
       <main className="relative z-10" id="hero">
         <HeroSection />
+        <GitHubStats />
+        <PerformanceMetrics />
         <ProjectsSection />
+        <CodePlayground />
+        <InteractiveSkillsComparison />
         <AboutSection />
         <TestimonialsSection />
-        <BlogSection />
+        <EnhancedBlogSection />
         <ContactSection />
       </main>
       <Footer />
