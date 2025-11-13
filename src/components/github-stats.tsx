@@ -13,12 +13,12 @@ interface GitHubStats {
 
 export function GitHubStats() {
   const [stats, setStats] = useState<GitHubStats>({
-    totalStars: 1247,
-    totalForks: 384,
-    totalRepos: 52,
-    contributions: 1893,
-    followers: 567,
-    streak: 127
+    totalStars: 15,
+    totalForks: 5,
+    totalRepos: 10,
+    contributions: 450,
+    followers: 25,
+    streak: 45
   });
 
   const [isLoading, setIsLoading] = useState(true);
@@ -160,7 +160,7 @@ export function GitHubStats() {
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl font-semibold">Contribution Activity</h3>
             <a
-              href="https://github.com/alexchen"
+              href="https://github.com/arthik444"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"

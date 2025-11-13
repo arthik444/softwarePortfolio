@@ -7,90 +7,59 @@ import { EnhancedProjectCard } from "./enhanced-project-card";
 const projects = [
   {
     id: 1,
-    title: "HealthAI Diagnostic Platform",
-    description: "Enterprise AI platform for medical imaging analysis. Deployed across 15+ hospitals, processing 50K+ scans monthly with 95% diagnostic accuracy.",
-    image: "https://images.unsplash.com/photo-1641567535859-c58187ac4954?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBtaW5pbWFsaXN0JTIwZGFzaGJvYXJkJTIwaW50ZXJmYWNlfGVufDF8fHx8MTc1ODg4OTI3NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Python", "TensorFlow", "React", "PostgreSQL", "AWS", "Docker", "Kubernetes", "FastAPI"],
-    category: "AI/ML",
+    title: "myLeetSpace",
+    description: "A comprehensive coding interview preparation platform combining spaced repetition with systematic learning, serving 100+ active users with a 95% retention rate.",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    techStack: ["React", "FastAPI", "MongoDB", "Firebase", "Python", "TypeScript"],
+    category: "Full-Stack",
     year: "2024",
-    status: "Production",
-    metrics: { users: "50K+", accuracy: "95%", hospitals: "15+" },
+    status: "Active",
+    metrics: { users: "100+", retention: "95%", problems: "1000+" },
     featured: true,
-    impact: "Reduced diagnostic time by 60% and improved early disease detection rates by 35% across partner hospitals.",
+    impact: "Designed and architected a full-stack platform implementing real-time synchronization and a custom spaced repetition algorithm for optimal problem retention.",
+    github: "https://github.com/arthik444/leetspace",
     challenges: [
-      "Processing high-resolution medical images in real-time",
-      "Ensuring HIPAA compliance for patient data",
-      "Integrating with legacy hospital systems"
+      "Implementing efficient spaced repetition algorithm",
+      "Real-time data synchronization across devices",
+      "Scalable MongoDB schema design"
     ],
     solutions: [
-      "Implemented distributed GPU processing pipeline",
-      "Built end-to-end encryption with federated learning",
-      "Developed custom APIs for seamless EHR integration"
+      "Custom algorithm optimized for coding problem retention",
+      "Firebase real-time database integration",
+      "Indexed MongoDB collections for fast queries"
     ]
   },
   {
     id: 2,
-    title: "SearchFlow Infrastructure",
-    description: "Distributed search engine handling 10M+ queries daily. Sub-100ms latency with advanced ranking algorithms and real-time indexing.",
-    image: "https://images.unsplash.com/photo-1681644664127-b1f5f17528cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMHRlY2hub2xvZ3klMjBzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDF8fHx8MTc1ODg4OTI3OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Go", "Elasticsearch", "Redis", "Docker", "Kubernetes"],
-    category: "Infrastructure",
-    year: "2023",
-    status: "Production",
-    metrics: { queries: "10M+", latency: "<100ms", uptime: "99.9%" },
-    featured: true
+    title: "ProCheck",
+    description: "AI-Powered Medical Protocol Search & Generation. An intelligent medical protocol search and checklist generation platform powered by Elasticsearch Hybrid Search and Google Gemini AI.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    techStack: ["Elasticsearch", "Google Gemini AI", "Python", "FastAPI", "React"],
+    category: "AI/ML",
+    year: "2024",
+    status: "Active",
+    metrics: { protocols: "500+", accuracy: "92%", searches: "5K+" },
+    featured: true,
+    impact: "Streamlined medical protocol access with hybrid search combining semantic and keyword matching for healthcare professionals.",
+    github: "https://github.com/arthik444/procheck"
   },
   {
     id: 3,
-    title: "FinTech Analytics Suite",
-    description: "Real-time financial analytics platform processing $2B+ in transactions. Advanced fraud detection with ML-powered insights.",
-    image: "https://images.unsplash.com/photo-1758691737207-e75821e080cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkYXRhJTIwdmlzdWFsaXphdGlvbiUyMGNoYXJ0c3xlbnwxfHx8fDE3NTg4ODkyODR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["TypeScript", "Next.js", "D3.js", "Python", "AWS"],
-    category: "FinTech",
-    year: "2023",
-    status: "Production",
-    metrics: { volume: "$2B+", detection: "99.7%", latency: "50ms" },
-    featured: true
-  },
-  {
-    id: 4,
-    title: "IoT Management Platform",
-    description: "Industrial IoT platform managing 100K+ sensors. Real-time monitoring with predictive maintenance algorithms.",
-    image: "https://images.unsplash.com/photo-1549399905-5d1bad747576?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMHdvcmtzcGFjZSUyMHNldHVwfGVufDF8fHx8MTc1ODg4OTI4OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Rust", "MQTT", "InfluxDB", "Grafana", "Kubernetes"],
-    category: "IoT",
-    year: "2022",
-    status: "Production",
-    metrics: { sensors: "100K+", uptime: "99.8%", alerts: "1M+" },
-    featured: false
-  },
-  {
-    id: 5,
-    title: "DeFi Governance Protocol",
-    description: "Decentralized governance platform with zero-knowledge proofs. Managing $500M+ in treasury assets across 50+ DAOs.",
-    image: "https://images.unsplash.com/photo-1723731018011-c4374dd81a2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1pbmltYWwlMjB0ZWNobm9sb2d5JTIwZ3JpZHxlbnwxfHx8fDE3NTg4ODkyOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Solidity", "TypeScript", "React", "The Graph", "IPFS"],
-    category: "Web3",
+    title: "Rift Analyzer",
+    description: "AI-powered League of Legends coaching companion that helps players reflect on a full year of matches, understand persistent habits, and plan their next climb using Riot Games API and Amazon Bedrock.",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    techStack: ["Python", "Amazon Bedrock", "Riot Games API", "React", "FastAPI"],
+    category: "AI/ML",
     year: "2024",
-    status: "Production",
-    metrics: { treasury: "$500M+", daos: "50+", votes: "10K+" },
-    featured: false
-  },
-  {
-    id: 6,
-    title: "Cloud Infrastructure Engine",
-    description: "Multi-cloud deployment platform reducing infrastructure costs by 40%. Automated CI/CD for 500+ applications.",
-    image: "https://images.unsplash.com/photo-1559920666-ad86bd31b803?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwYXJjaGl0ZWN0dXJlJTIwYWJzdHJhY3QlMjBnZW9tZXRyaWN8ZW58MXx8fHwxNzU4ODg5MjgxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Terraform", "Go", "Docker", "AWS", "GCP"],
-    category: "DevOps",
-    year: "2023",
-    status: "Production",
-    metrics: { apps: "500+", savings: "40%", deploys: "1K+/day" },
-    featured: false
+    status: "Active",
+    metrics: { matches: "10K+", insights: "50+", users: "200+" },
+    featured: true,
+    impact: "Combines match data with AI to deliver personalized, data-rich retrospectives that help players improve their gameplay.",
+    github: "https://github.com/arthik444/LeagueOfLegends_AICoach"
   }
 ];
 
-const categories = ["All", "AI/ML", "Infrastructure", "FinTech", "IoT", "Web3", "DevOps"];
+const categories = ["All", "Full-Stack", "AI/ML"];
 
 export function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");

@@ -18,6 +18,7 @@ interface ProjectProps {
     impact?: string;
     challenges?: string[];
     solutions?: string[];
+    github?: string;
   };
   index: number;
 }
@@ -74,13 +75,18 @@ export function EnhancedProjectCard({ project, index }: ProjectProps) {
             >
               <ExternalLink className="w-5 h-5 text-white" />
             </motion.button>
-            <motion.button
-              className="glass-morphism p-3 rounded-xl hover:bg-white/20 transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Github className="w-5 h-5 text-white" />
-            </motion.button>
+            {project.github && (
+              <motion.a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-morphism p-3 rounded-xl hover:bg-white/20 transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Github className="w-5 h-5 text-white" />
+              </motion.a>
+            )}
           </div>
 
           {/* Category & Status Badges */}

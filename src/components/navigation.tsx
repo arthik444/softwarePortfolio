@@ -7,7 +7,6 @@ import { ThemeToggle } from "./theme-toggle";
 const navItems = [
   { name: "Work", href: "#projects" },
   { name: "About", href: "#about" },
-  { name: "Writing", href: "#blog" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -20,7 +19,7 @@ export function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      const sections = ["projects", "about", "blog", "contact"];
+      const sections = ["projects", "about", "contact"];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -66,7 +65,7 @@ export function Navigation() {
             className="text-xl font-light tracking-tight hover:text-foreground/80 transition-colors"
             whileHover={{ scale: 1.02 }}
           >
-            Alex Chen
+            Karthik Vemireddy
           </motion.button>
 
           {/* Desktop Navigation */}

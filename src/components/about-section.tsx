@@ -6,75 +6,48 @@ import { SkillsVisualization } from "./skills-visualization";
 const timeline = [
   {
     year: "2024",
-    title: "Senior AI Engineer",
-    company: "HealthTech Innovations",
-    description: "Leading AI platform development serving 15+ hospitals. Architected ML pipelines processing 50K+ medical scans monthly with 95% accuracy.",
+    title: "Research Assistant",
+    company: "BigLab @ Florida State University",
+    description: "Architected semantic search engine for clinical research using multilingual-e5-large embeddings and HNSW indexing, achieving <150ms query latency across 50K+ documents with 90% response time improvement. Engineered automated OCR pipeline processing medical PDFs to structured JSON, reducing manual review by 60%.",
     type: "work",
-    duration: "Present"
+    duration: "May 2024 – May 2025"
+  },
+  {
+    year: "2023",
+    title: "Master of Science in Computer Science",
+    company: "Florida State University",
+    description: "Coursework: Analytical Methods, Software Engineering, Cryptography, Computer Architecture, Advanced Databases, Machine Learning, Artificial Intelligence",
+    type: "education",
+    duration: "Aug 2023 – May 2025"
   },
   {
     year: "2022",
-    title: "Principal Engineer",
-    company: "SearchFlow Technologies",
-    description: "Built distributed search infrastructure handling 10M+ daily queries. Led team of 8 engineers, reduced query latency by 60%.",
+    title: "Software Developer",
+    company: "Maximl Labs Pvt. Ltd",
+    description: "Built offline-first mobile platform serving 500+ field engineers with 100% task continuity, reducing support tickets by 60% and enabling $2M+ in rural contracts. Developed real-time critical path dashboard using DAG algorithms and D3.js visualizations, preventing $500K+ in project overruns.",
     type: "work",
-    duration: "2 years"
+    duration: "Jan 2022 – Jul 2023"
   },
   {
-    year: "2020",
-    title: "Senior Engineer",
-    company: "DataFlow Solutions",
-    description: "Designed microservices architecture for fintech applications. Reduced infrastructure costs by 45% while improving performance 3x.",
-    type: "work",
-    duration: "2 years"
-  },
-  {
-    year: "2019",
-    title: "Computer Science",
-    company: "Stanford University",
-    description: "B.S. Computer Science, Magna Cum Laude. Specialized in AI/ML with thesis on deep learning for medical imaging. GPA: 3.8/4.0",
+    year: "2018",
+    title: "Bachelor of Engineering in Computer Engineering",
+    company: "International Institute of Information Technology",
+    description: "Coursework: Algorithms, Data Structures, Databases, Object-Oriented Programming, Operating Systems, Computer Networking",
     type: "education",
-    duration: "4 years"
+    duration: "Aug 2018 – Jul 2022"
   }
 ];
 
 const skills = [
-  { category: "Languages", items: ["Python", "TypeScript", "Go", "Rust"] },
-  { category: "AI/ML", items: ["TensorFlow", "PyTorch", "Scikit-learn", "MLflow"] },
-  { category: "Backend", items: ["Node.js", "FastAPI", "PostgreSQL", "Redis"] },
-  { category: "Infrastructure", items: ["AWS", "Docker", "Kubernetes", "Terraform"] },
-  { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind"] }
-];
-
-const achievements = [
-  {
-    title: "AI4Healthcare Winner",
-    organization: "Stanford University",
-    year: "2023",
-    description: "First place in annual healthcare hackathon with $100K prize"
-  },
-  {
-    title: "Top 1% Contributor",
-    organization: "GitHub",
-    year: "2024",
-    description: "Global ranking based on contributions and project impact"
-  },
-  {
-    title: "Patent Holder",
-    organization: "USPTO",
-    year: "2024",
-    description: "ML-based medical diagnosis system patent #US11,234,567"
-  },
-  {
-    title: "Tech Conference Speaker",
-    organization: "PyData Global",
-    year: "2023",
-    description: "Keynote on production ML systems for 2000+ attendees"
-  }
+  { category: "Languages", items: ["Python", "JavaScript", "TypeScript", "C/C++", "SQL"] },
+  { category: "Frontend", items: ["React", "Angular", "HTML/CSS", "Ionic", "Tailwind CSS"] },
+  { category: "Backend", items: ["Node.js", "FastAPI", "Express", "PostgreSQL", "MongoDB"] },
+  { category: "ML/AI", items: ["PyTorch", "scikit-learn", "Hugging Face", "Vector DBs"] },
+  { category: "Tools", items: ["Git", "Docker", "AWS", "Redis", "D3.js"] }
 ];
 
 export function AboutSection() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'journey' | 'achievements'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'journey'>('overview');
 
   return (
     <section className="py-24 px-6" id="about">
@@ -108,8 +81,7 @@ export function AboutSection() {
         >
           {[
             { id: 'overview', label: 'Overview' },
-            { id: 'journey', label: 'Journey' },
-            { id: 'achievements', label: 'Recognition' }
+            { id: 'journey', label: 'Journey' }
           ].map(({ id, label }) => (
             <button
               key={id}
@@ -249,38 +221,6 @@ export function AboutSection() {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
-          )}
-
-          {activeTab === 'achievements' && (
-            <motion.div
-              className="grid md:grid-cols-2 gap-6"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              {achievements.map((achievement, index) => (
-                <motion.div
-                  key={achievement.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="surface surface-hover rounded-lg p-6 group"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <Award className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                    <span className="text-xs text-muted-foreground">{achievement.year}</span>
-                  </div>
-                  <h3 className="text-lg font-light mb-2 group-hover:text-foreground/80 transition-colors">
-                    {achievement.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-3">{achievement.organization}</p>
-                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
-                    {achievement.description}
-                  </p>
-                </motion.div>
-              ))}
             </motion.div>
           )}
         </div>

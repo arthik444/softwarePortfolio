@@ -2,19 +2,22 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 
 const skillsData = [
-  { name: 'Python', level: 95, category: 'Backend' },
-  { name: 'TypeScript', level: 90, category: 'Frontend' },
-  { name: 'React', level: 92, category: 'Frontend' },
-  { name: 'Node.js', level: 88, category: 'Backend' },
-  { name: 'AWS', level: 85, category: 'Cloud' },
-  { name: 'Docker', level: 87, category: 'DevOps' },
-  { name: 'PostgreSQL', level: 83, category: 'Database' },
-  { name: 'TensorFlow', level: 89, category: 'AI/ML' },
-  { name: 'Go', level: 78, category: 'Backend' },
-  { name: 'Kubernetes', level: 80, category: 'DevOps' }
+  { name: 'Python', level: 90, category: 'Backend' },
+  { name: 'JavaScript', level: 88, category: 'Frontend' },
+  { name: 'TypeScript', level: 85, category: 'Frontend' },
+  { name: 'React', level: 90, category: 'Frontend' },
+  { name: 'Angular', level: 88, category: 'Frontend' },
+  { name: 'Node.js', level: 85, category: 'Backend' },
+  { name: 'FastAPI', level: 82, category: 'Backend' },
+  { name: 'MongoDB', level: 85, category: 'Database' },
+  { name: 'PostgreSQL', level: 80, category: 'Database' },
+  { name: 'Docker', level: 75, category: 'Tools' },
+  { name: 'AWS', level: 70, category: 'Tools' },
+  { name: 'PyTorch', level: 78, category: 'AI/ML' },
+  { name: 'scikit-learn', level: 80, category: 'AI/ML' }
 ];
 
-const categories = ['All', 'Frontend', 'Backend', 'AI/ML', 'Cloud', 'DevOps', 'Database'];
+const categories = ['All', 'Frontend', 'Backend', 'AI/ML', 'Database', 'Tools'];
 
 export function SkillsVisualization() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -36,9 +39,8 @@ export function SkillsVisualization() {
       'Frontend': 'from-blue-500/20 to-blue-500/5',
       'Backend': 'from-emerald-500/20 to-emerald-500/5',
       'AI/ML': 'from-purple-500/20 to-purple-500/5',
-      'Cloud': 'from-cyan-500/20 to-cyan-500/5',
-      'DevOps': 'from-orange-500/20 to-orange-500/5',
-      'Database': 'from-pink-500/20 to-pink-500/5'
+      'Database': 'from-pink-500/20 to-pink-500/5',
+      'Tools': 'from-cyan-500/20 to-cyan-500/5'
     };
     return colors[category] || 'from-gray-500/20 to-gray-500/5';
   };

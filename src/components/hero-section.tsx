@@ -6,17 +6,17 @@ import { ScrollReveal } from "./scroll-reveal";
 import professionalPortrait from "figma:asset/a32a1d651f5b7001a996f43fff5fc4f940eef324.png";
 
 const stats = [
-  { value: "5+", label: "Years Experience" },
-  { value: "50+", label: "Projects Delivered" },
-  { value: "1M+", label: "Users Impacted" },
-  { value: "99.9%", label: "System Uptime" }
+  { value: "2+", label: "Years Experience" },
+  { value: "5+", label: "Projects Delivered" },
+  { value: "10", label: "GitHub Repos" },
+  { value: "350+", label: "LeetCode Solved" }
 ];
 
 const specializations = [
-  "AI & Machine Learning",
-  "Distributed Systems",
-  "Healthcare Technology",
-  "Search Infrastructure"
+  "Full-Stack Development",
+  "Semantic Search & OCR",
+  "React & Angular",
+  "Data-Driven Applications"
 ];
 
 export function HeroSection() {
@@ -51,14 +51,13 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="mb-8"
             >
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-gradient mb-6 text-shadow">
-                Karthik Vemireddy
-              </h1>
-              <div className="text-xl md:text-2xl text-muted-foreground font-light mb-4">
-                Software Engineer
-              </div>
-              <div className="text-base text-muted-foreground/80 mono-font">
-                Tallahassee, FL
+              <div className="flex flex-col gap-2">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-gradient text-shadow">
+                  Karthik Vemireddy
+                </h1>
+                <div className="text-lg text-muted-foreground font-light mono-font">
+                  Software Engineer • Tallahassee, FL
+                </div>
               </div>
             </motion.div>
 
@@ -92,9 +91,12 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-12"
           >
-            Building intelligent systems that scale. I architect and develop 
-            production-grade applications serving millions of users, with expertise 
-            in AI-powered solutions, distributed infrastructure, and healthcare technology.
+            Proactive and highly motivated Software Engineer with 2+ years of industry experience 
+            in full-stack development, specializing in Angular, React, and data-driven web applications. 
+            Proven ability to build scalable solutions, from frontend UIs to backend integrations. 
+            Recent research experience in semantic search, OCR-based data extraction, and MongoDB-backed 
+            search engines. Strong foundation in algorithms and problem-solving, honed through 
+            competitive programming.
           </motion.p>
 
             {/* Actions */}
@@ -129,9 +131,9 @@ export function HeroSection() {
               className="flex gap-6"
             >
               {[
-                { icon: Github, href: "https://github.com", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:alex@example.com", label: "Email" }
+                { icon: Github, href: "https://github.com/arthik444", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/karthikvemireddy18/", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:karthikmasters444@gmail.com", label: "Email" }
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
