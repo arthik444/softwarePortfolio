@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { ExternalLink, Github, ArrowUpRight, Calendar, Users, Zap } from "lucide-react";
+import { motion } from "motion/react";
+import { Calendar, ArrowUpRight } from "lucide-react";
 import { EnhancedProjectCard } from "./enhanced-project-card";
+import { useScrollAnimation, useParallax } from "../hooks/use-scroll-animations";
 
 const projects = [
   {
@@ -64,36 +64,42 @@ const categories = ["All", "Full-Stack", "AI/ML"];
 export function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const { ref, scrollYProgress } = useScrollAnimation();
+  const y = useParallax(scrollYProgress, 50);
 
-  const filteredProjects = selectedCategory === "All" 
-    ? projects 
+  const filteredProjects = selectedCategory === "All"
+    ? projects
     : projects.filter(project => project.category === selectedCategory);
 
   const featuredProjects = filteredProjects.filter(p => p.featured);
   const otherProjects = filteredProjects.filter(p => !p.featured);
 
   return (
-    <section className="py-24 px-6" id="projects">
-      <div className="container mx-auto">
+    <section ref={ref as any} className="relative py-20 overflow-hidden">
+      {/* Decorative Elements with Parallax */}
+      <motion.div
+        style={{ y }}
+        className="absolute top-20 right-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
+      />
+      <motion.div
+        style={{ y: useParallax(scrollYProgress, -30) }}
+        className="absolute bottom-20 left-10 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"
+      />
+
+      <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
-          className="mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-gradient-to-r from-purple-500 to-blue-500" />
-            <span className="text-sm text-muted-foreground tracking-wide uppercase">
-              Selected Work
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gradient mb-6">
+          <h2 className="text-4xl md:text-5xl font-light mb-6">
             Engineering Excellence
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Production systems serving millions of users. Each project represents 
+          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mx-auto">
+            Production systems serving millions of users. Each project represents
             months of architectural decisions, performance optimization, and iterative refinement.
           </p>
         </motion.div>
@@ -110,11 +116,10 @@ export function ProjectsSection() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 text-sm transition-all duration-300 border rounded-lg ${
-                selectedCategory === category
-                  ? "bg-foreground text-background border-foreground"
-                  : "text-muted-foreground border-border/40 hover:border-foreground/40 hover:text-foreground"
-              }`}
+              className={`px-4 py-2 text-sm transition-all duration-300 border rounded-lg ${selectedCategory === category
+                ? "bg-foreground text-background border-foreground"
+                : "text-muted-foreground border-border/40 hover:border-foreground/40 hover:text-foreground"
+                }`}
             >
               {category}
             </button>
@@ -171,11 +176,11 @@ export function ProjectsSection() {
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                   </div>
-                  
+
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     {project.description}
                   </p>
-                  
+
                   {/* Quick Metrics */}
                   <div className="flex gap-4 mb-4 text-xs">
                     {Object.entries(project.metrics).slice(0, 2).map(([key, value]) => (
@@ -185,7 +190,7 @@ export function ProjectsSection() {
                       </div>
                     ))}
                   </div>
-                  
+
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-1">
                     {project.techStack.slice(0, 4).map((tech) => (

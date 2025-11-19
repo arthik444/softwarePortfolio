@@ -52,6 +52,7 @@ export function EnhancedProjectCard({ project, index }: ProjectProps) {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
       className="group cursor-pointer"
     >
       <div className="surface surface-hover rounded-2xl overflow-hidden magnetic-hover">
@@ -62,10 +63,10 @@ export function EnhancedProjectCard({ project, index }: ProjectProps) {
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          
+
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
+
           {/* Action Buttons */}
           <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <motion.button

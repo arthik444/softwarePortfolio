@@ -1,8 +1,8 @@
-import { Button } from "./ui/button";
 import { motion } from "motion/react";
 import { ArrowRight, Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ScrollReveal } from "./scroll-reveal";
+import { MagneticButton } from "./ui/magnetic-button";
 import professionalPortrait from "figma:asset/a32a1d651f5b7001a996f43fff5fc4f940eef324.png";
 
 const stats = [
@@ -25,7 +25,7 @@ export function HeroSection() {
       {/* Background Patterns */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
       <div className="absolute top-0 right-0 w-1/2 h-1/2 dot-pattern opacity-20" />
-      
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -61,43 +61,43 @@ export function HeroSection() {
               </div>
             </motion.div>
 
-          {/* Specializations */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-12"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {specializations.map((spec, index) => (
-                <motion.div
-                  key={spec}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="flex items-center gap-3 text-foreground/80"
-                >
-                  <div className="w-1 h-1 bg-foreground/40 rounded-full" />
-                  {spec}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+            {/* Specializations */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-12"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {specializations.map((spec, index) => (
+                  <motion.div
+                    key={spec}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                    className="flex items-center gap-3 text-foreground/80"
+                  >
+                    <div className="w-1 h-1 bg-foreground/40 rounded-full" />
+                    {spec}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-12"
-          >
-            Proactive and highly motivated Software Engineer with 2+ years of industry experience 
-            in full-stack development, specializing in Angular, React, and data-driven web applications. 
-            Proven ability to build scalable solutions, from frontend UIs to backend integrations. 
-            Recent research experience in semantic search, OCR-based data extraction, and MongoDB-backed 
-            search engines. Strong foundation in algorithms and problem-solving, honed through 
-            competitive programming.
-          </motion.p>
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-12"
+            >
+              Proactive and highly motivated Software Engineer with 2+ years of industry experience
+              in full-stack development, specializing in Angular, React, and data-driven web applications.
+              Proven ability to build scalable solutions, from frontend UIs to backend integrations.
+              Recent research experience in semantic search, OCR-based data extraction, and MongoDB-backed
+              search engines. Strong foundation in algorithms and problem-solving, honed through
+              competitive programming.
+            </motion.p>
 
             {/* Actions */}
             <motion.div
@@ -106,21 +106,19 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 mb-16"
             >
-              <Button 
-                size="lg" 
-                className="group bg-foreground text-background hover:bg-foreground/90 px-8 magnetic-hover"
+              <MagneticButton
+                className="group bg-foreground text-background hover:bg-foreground/90 px-8 py-3 rounded-md font-medium inline-flex items-center justify-center"
               >
                 Get in touch
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="surface border-border/40 hover:border-foreground/20 px-8 magnetic-hover"
+              </MagneticButton>
+
+              <MagneticButton
+                className="group surface border-border/40 hover:border-foreground/20 px-8 py-3 rounded-md font-medium inline-flex items-center justify-center"
               >
                 View projects
                 <ArrowUpRight className="ml-2 w-4 h-4" />
-              </Button>
+              </MagneticButton>
             </motion.div>
 
             {/* Social Links */}
@@ -168,7 +166,7 @@ export function HeroSection() {
               <div className="relative w-80 h-80 lg:w-96 lg:h-96">
                 {/* Glass Frame */}
                 <div className="absolute inset-0 glass-morphism rounded-3xl" />
-                
+
                 {/* Photo */}
                 <div className="relative w-full h-full p-4">
                   <div className="w-full h-full rounded-2xl overflow-hidden">
@@ -179,31 +177,6 @@ export function HeroSection() {
                     />
                   </div>
                 </div>
-
-                {/* Floating Stats */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="absolute -top-4 -right-4 glass-morphism rounded-2xl p-4 floating-element"
-                >
-                  <div className="text-center">
-                    <div className="text-2xl font-light text-gradient-purple">5+</div>
-                    <div className="text-xs text-muted-foreground">Years</div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                  className="absolute -bottom-4 -left-4 glass-morphism rounded-2xl p-4 floating-element-delayed"
-                >
-                  <div className="text-center">
-                    <div className="text-2xl font-light text-gradient-blue">50+</div>
-                    <div className="text-xs text-muted-foreground">Projects</div>
-                  </div>
-                </motion.div>
               </div>
             </div>
           </motion.div>
