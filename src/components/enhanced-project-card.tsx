@@ -18,6 +18,7 @@ interface ProjectProps {
     impact?: string;
     challenges?: string[];
     solutions?: string[];
+    github?: string;
   };
   index: number;
 }
@@ -51,6 +52,7 @@ export function EnhancedProjectCard({ project, index }: ProjectProps) {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
       className="group cursor-pointer"
     >
       <div className="surface surface-hover rounded-2xl overflow-hidden magnetic-hover">
@@ -61,10 +63,10 @@ export function EnhancedProjectCard({ project, index }: ProjectProps) {
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          
+
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
+
           {/* Action Buttons */}
           <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <motion.button
@@ -74,13 +76,18 @@ export function EnhancedProjectCard({ project, index }: ProjectProps) {
             >
               <ExternalLink className="w-5 h-5 text-white" />
             </motion.button>
-            <motion.button
-              className="glass-morphism p-3 rounded-xl hover:bg-white/20 transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Github className="w-5 h-5 text-white" />
-            </motion.button>
+            {project.github && (
+              <motion.a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-morphism p-3 rounded-xl hover:bg-white/20 transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Github className="w-5 h-5 text-white" />
+              </motion.a>
+            )}
           </div>
 
           {/* Category & Status Badges */}

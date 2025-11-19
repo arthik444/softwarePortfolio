@@ -1,130 +1,105 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { ExternalLink, Github, ArrowUpRight, Calendar, Users, Zap } from "lucide-react";
+import { motion } from "motion/react";
+import { Calendar, ArrowUpRight } from "lucide-react";
 import { EnhancedProjectCard } from "./enhanced-project-card";
+import { useScrollAnimation, useParallax } from "../hooks/use-scroll-animations";
 
 const projects = [
   {
     id: 1,
-    title: "HealthAI Diagnostic Platform",
-    description: "Enterprise AI platform for medical imaging analysis. Deployed across 15+ hospitals, processing 50K+ scans monthly with 95% diagnostic accuracy.",
-    image: "https://images.unsplash.com/photo-1641567535859-c58187ac4954?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBtaW5pbWFsaXN0JTIwZGFzaGJvYXJkJTIwaW50ZXJmYWNlfGVufDF8fHx8MTc1ODg4OTI3NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Python", "TensorFlow", "React", "PostgreSQL", "AWS", "Docker", "Kubernetes", "FastAPI"],
-    category: "AI/ML",
+    title: "myLeetSpace",
+    description: "A comprehensive coding interview preparation platform combining spaced repetition with systematic learning, serving 100+ active users with a 95% retention rate.",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    techStack: ["React", "FastAPI", "MongoDB", "Firebase", "Python", "TypeScript"],
+    category: "Full-Stack",
     year: "2024",
-    status: "Production",
-    metrics: { users: "50K+", accuracy: "95%", hospitals: "15+" },
+    status: "Active",
+    metrics: { users: "100+", retention: "95%", problems: "1000+" },
     featured: true,
-    impact: "Reduced diagnostic time by 60% and improved early disease detection rates by 35% across partner hospitals.",
+    impact: "Designed and architected a full-stack platform implementing real-time synchronization and a custom spaced repetition algorithm for optimal problem retention.",
+    github: "https://github.com/arthik444/leetspace",
     challenges: [
-      "Processing high-resolution medical images in real-time",
-      "Ensuring HIPAA compliance for patient data",
-      "Integrating with legacy hospital systems"
+      "Implementing efficient spaced repetition algorithm",
+      "Real-time data synchronization across devices",
+      "Scalable MongoDB schema design"
     ],
     solutions: [
-      "Implemented distributed GPU processing pipeline",
-      "Built end-to-end encryption with federated learning",
-      "Developed custom APIs for seamless EHR integration"
+      "Custom algorithm optimized for coding problem retention",
+      "Firebase real-time database integration",
+      "Indexed MongoDB collections for fast queries"
     ]
   },
   {
     id: 2,
-    title: "SearchFlow Infrastructure",
-    description: "Distributed search engine handling 10M+ queries daily. Sub-100ms latency with advanced ranking algorithms and real-time indexing.",
-    image: "https://images.unsplash.com/photo-1681644664127-b1f5f17528cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMHRlY2hub2xvZ3klMjBzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDF8fHx8MTc1ODg4OTI3OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Go", "Elasticsearch", "Redis", "Docker", "Kubernetes"],
-    category: "Infrastructure",
-    year: "2023",
-    status: "Production",
-    metrics: { queries: "10M+", latency: "<100ms", uptime: "99.9%" },
-    featured: true
+    title: "ProCheck",
+    description: "AI-Powered Medical Protocol Search & Generation. An intelligent medical protocol search and checklist generation platform powered by Elasticsearch Hybrid Search and Google Gemini AI.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    techStack: ["Elasticsearch", "Google Gemini AI", "Python", "FastAPI", "React"],
+    category: "AI/ML",
+    year: "2024",
+    status: "Active",
+    metrics: { protocols: "500+", accuracy: "92%", searches: "5K+" },
+    featured: true,
+    impact: "Streamlined medical protocol access with hybrid search combining semantic and keyword matching for healthcare professionals.",
+    github: "https://github.com/arthik444/procheck"
   },
   {
     id: 3,
-    title: "FinTech Analytics Suite",
-    description: "Real-time financial analytics platform processing $2B+ in transactions. Advanced fraud detection with ML-powered insights.",
-    image: "https://images.unsplash.com/photo-1758691737207-e75821e080cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkYXRhJTIwdmlzdWFsaXphdGlvbiUyMGNoYXJ0c3xlbnwxfHx8fDE3NTg4ODkyODR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["TypeScript", "Next.js", "D3.js", "Python", "AWS"],
-    category: "FinTech",
-    year: "2023",
-    status: "Production",
-    metrics: { volume: "$2B+", detection: "99.7%", latency: "50ms" },
-    featured: true
-  },
-  {
-    id: 4,
-    title: "IoT Management Platform",
-    description: "Industrial IoT platform managing 100K+ sensors. Real-time monitoring with predictive maintenance algorithms.",
-    image: "https://images.unsplash.com/photo-1549399905-5d1bad747576?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMHdvcmtzcGFjZSUyMHNldHVwfGVufDF8fHx8MTc1ODg4OTI4OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Rust", "MQTT", "InfluxDB", "Grafana", "Kubernetes"],
-    category: "IoT",
-    year: "2022",
-    status: "Production",
-    metrics: { sensors: "100K+", uptime: "99.8%", alerts: "1M+" },
-    featured: false
-  },
-  {
-    id: 5,
-    title: "DeFi Governance Protocol",
-    description: "Decentralized governance platform with zero-knowledge proofs. Managing $500M+ in treasury assets across 50+ DAOs.",
-    image: "https://images.unsplash.com/photo-1723731018011-c4374dd81a2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1pbmltYWwlMjB0ZWNobm9sb2d5JTIwZ3JpZHxlbnwxfHx8fDE3NTg4ODkyOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Solidity", "TypeScript", "React", "The Graph", "IPFS"],
-    category: "Web3",
+    title: "Rift Analyzer",
+    description: "AI-powered League of Legends coaching companion that helps players reflect on a full year of matches, understand persistent habits, and plan their next climb using Riot Games API and Amazon Bedrock.",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    techStack: ["Python", "Amazon Bedrock", "Riot Games API", "React", "FastAPI"],
+    category: "AI/ML",
     year: "2024",
-    status: "Production",
-    metrics: { treasury: "$500M+", daos: "50+", votes: "10K+" },
-    featured: false
-  },
-  {
-    id: 6,
-    title: "Cloud Infrastructure Engine",
-    description: "Multi-cloud deployment platform reducing infrastructure costs by 40%. Automated CI/CD for 500+ applications.",
-    image: "https://images.unsplash.com/photo-1559920666-ad86bd31b803?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwYXJjaGl0ZWN0dXJlJTIwYWJzdHJhY3QlMjBnZW9tZXRyaWN8ZW58MXx8fHwxNzU4ODg5MjgxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    techStack: ["Terraform", "Go", "Docker", "AWS", "GCP"],
-    category: "DevOps",
-    year: "2023",
-    status: "Production",
-    metrics: { apps: "500+", savings: "40%", deploys: "1K+/day" },
-    featured: false
+    status: "Active",
+    metrics: { matches: "10K+", insights: "50+", users: "200+" },
+    featured: true,
+    impact: "Combines match data with AI to deliver personalized, data-rich retrospectives that help players improve their gameplay.",
+    github: "https://github.com/arthik444/LeagueOfLegends_AICoach"
   }
 ];
 
-const categories = ["All", "AI/ML", "Infrastructure", "FinTech", "IoT", "Web3", "DevOps"];
+const categories = ["All", "Full-Stack", "AI/ML"];
 
 export function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const { ref, scrollYProgress } = useScrollAnimation();
+  const y = useParallax(scrollYProgress, 50);
 
-  const filteredProjects = selectedCategory === "All" 
-    ? projects 
+  const filteredProjects = selectedCategory === "All"
+    ? projects
     : projects.filter(project => project.category === selectedCategory);
 
   const featuredProjects = filteredProjects.filter(p => p.featured);
   const otherProjects = filteredProjects.filter(p => !p.featured);
 
   return (
-    <section className="py-24 px-6" id="projects">
-      <div className="container mx-auto">
+    <section ref={ref as any} className="relative py-20 overflow-hidden">
+      {/* Decorative Elements with Parallax */}
+      <motion.div
+        style={{ y }}
+        className="absolute top-20 right-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
+      />
+      <motion.div
+        style={{ y: useParallax(scrollYProgress, -30) }}
+        className="absolute bottom-20 left-10 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"
+      />
+
+      <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
-          className="mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-gradient-to-r from-purple-500 to-blue-500" />
-            <span className="text-sm text-muted-foreground tracking-wide uppercase">
-              Selected Work
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gradient mb-6">
+          <h2 className="text-4xl md:text-5xl font-light mb-6">
             Engineering Excellence
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Production systems serving millions of users. Each project represents 
+          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mx-auto">
+            Production systems serving millions of users. Each project represents
             months of architectural decisions, performance optimization, and iterative refinement.
           </p>
         </motion.div>
@@ -141,11 +116,10 @@ export function ProjectsSection() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 text-sm transition-all duration-300 border rounded-lg ${
-                selectedCategory === category
-                  ? "bg-foreground text-background border-foreground"
-                  : "text-muted-foreground border-border/40 hover:border-foreground/40 hover:text-foreground"
-              }`}
+              className={`px-4 py-2 text-sm transition-all duration-300 border rounded-lg ${selectedCategory === category
+                ? "bg-foreground text-background border-foreground"
+                : "text-muted-foreground border-border/40 hover:border-foreground/40 hover:text-foreground"
+                }`}
             >
               {category}
             </button>
@@ -202,11 +176,11 @@ export function ProjectsSection() {
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                   </div>
-                  
+
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     {project.description}
                   </p>
-                  
+
                   {/* Quick Metrics */}
                   <div className="flex gap-4 mb-4 text-xs">
                     {Object.entries(project.metrics).slice(0, 2).map(([key, value]) => (
@@ -216,7 +190,7 @@ export function ProjectsSection() {
                       </div>
                     ))}
                   </div>
-                  
+
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-1">
                     {project.techStack.slice(0, 4).map((tech) => (

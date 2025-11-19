@@ -2,40 +2,73 @@ import { Navigation } from "./components/navigation";
 import { HeroSection } from "./components/hero-section";
 import { ProjectsSection } from "./components/projects-section";
 import { AboutSection } from "./components/about-section";
-import { TestimonialsSection } from "./components/testimonials-section";
-import { BlogSection } from "./components/blog-section";
 import { ContactSection } from "./components/contact-section";
 import { Footer } from "./components/footer";
 import { FloatingSidebar } from "./components/floating-sidebar";
 import { CursorFollower } from "./components/cursor-follower";
-import { ScrollProgress } from "./components/scroll-progress";
+import { Interactive3DScene } from "./components/interactive-3d-scene";
+import { FloatingNav } from "./components/floating-nav";
+import { CustomCursor } from "./components/ui/custom-cursor";
 import { Toaster } from "./components/ui/sonner";
+import { useSmoothScrollProgress } from "./hooks/use-scroll-animations";
+import { ThemeProvider } from "./contexts/theme-context";
+import { motion } from "motion/react";
 
 export default function App() {
-  return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
-      <ScrollProgress />
-      <Navigation />
-      <FloatingSidebar />
-      
-      {/* Floating decorative elements */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-3xl floating-element" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-gradient-to-r from-emerald-500/10 to-purple-500/10 blur-3xl floating-element-delayed" />
-        <div className="absolute top-3/4 left-1/6 w-32 h-32 rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 blur-2xl floating-element" />
-      </div>
+  const scrollProgress = useSmoothScrollProgress();
 
-      <main className="relative z-10" id="hero">
-        <HeroSection />
-        <ProjectsSection />
-        <AboutSection />
-        <TestimonialsSection />
-        <BlogSection />
-        <ContactSection />
-      </main>
-      <Footer />
-      <CursorFollower />
-      <Toaster />
-    </div>
+  return (
+    <ThemeProvider>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="relative min-h-screen bg-background text-foreground overflow-x-hidden"
+      >
+        {/* Scroll Progress Bar */}
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-emerald-500 origin-left z-50"
+          style={{ scaleX: scrollProgress }}
+        />
+
+        {/* Custom Cursor */}
+        <CustomCursor />
+
+        {/* Floating Navigation */}
+        <FloatingNav />
+
+        {/* Background Effects */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <Interactive3DScene />
+        </div>
+
+        {/* Original Navigation */}
+        <Navigation />
+        <FloatingSidebar />
+
+        {/* Main Content */}
+        <main className="relative z-10">
+          <section id="hero">
+            <HeroSection />
+          </section>
+
+          <section id="projects">
+            <ProjectsSection />
+          </section>
+
+          <section id="about">
+            <AboutSection />
+          </section>
+
+          <section id="contact">
+            <ContactSection />
+          </section>
+        </main>
+
+        <Footer />
+        <CursorFollower />
+        <Toaster />
+      </motion.div>
+    </ThemeProvider>
   );
 }

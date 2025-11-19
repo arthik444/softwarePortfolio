@@ -179,14 +179,14 @@ export function ContactSection() {
                   <Mail className="w-4 h-4 text-muted-foreground" />
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-sm">alex.chen@example.com</p>
+                    <p className="text-sm">karthikmasters444@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-muted-foreground" />
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-sm">San Francisco, CA</p>
+                    <p className="text-sm">Tallahassee, FL</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -207,19 +207,19 @@ export function ContactSection() {
                   { 
                     icon: Github, 
                     label: "GitHub", 
-                    href: "https://github.com/alexchen",
+                    href: "https://github.com/arthik444",
                     description: "Open source projects and contributions"
                   },
                   { 
                     icon: Linkedin, 
                     label: "LinkedIn", 
-                    href: "https://linkedin.com/in/alexchen",
+                    href: "https://www.linkedin.com/in/karthikvemireddy18/",
                     description: "Professional background and network"
                   },
                   { 
                     icon: Mail, 
                     label: "Email", 
-                    href: "mailto:alex.chen@example.com",
+                    href: "mailto:karthikmasters444@gmail.com",
                     description: "For direct communication"
                   }
                 ].map(({ icon: Icon, label, href, description }) => (
