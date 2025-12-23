@@ -2,19 +2,24 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 
 const skillsData = [
-  { name: 'Python', level: 90, category: 'Backend' },
-  { name: 'JavaScript', level: 88, category: 'Frontend' },
-  { name: 'TypeScript', level: 85, category: 'Frontend' },
-  { name: 'React', level: 90, category: 'Frontend' },
-  { name: 'Angular', level: 88, category: 'Frontend' },
+  { name: 'Python', level: 95, category: 'Backend' },
+  { name: 'TypeScript', level: 90, category: 'Frontend' },
+  { name: 'JavaScript', level: 90, category: 'Frontend' },
+  { name: 'React', level: 92, category: 'Frontend' },
+  { name: 'Angular', level: 90, category: 'Frontend' },
+  { name: 'Next.js', level: 85, category: 'Frontend' },
+  { name: 'FastAPI', level: 90, category: 'Backend' },
   { name: 'Node.js', level: 85, category: 'Backend' },
-  { name: 'FastAPI', level: 82, category: 'Backend' },
-  { name: 'MongoDB', level: 85, category: 'Database' },
-  { name: 'PostgreSQL', level: 80, category: 'Database' },
-  { name: 'Docker', level: 75, category: 'Tools' },
-  { name: 'AWS', level: 70, category: 'Tools' },
-  { name: 'PyTorch', level: 78, category: 'AI/ML' },
-  { name: 'scikit-learn', level: 80, category: 'AI/ML' }
+  { name: 'MongoDB', level: 88, category: 'Database' },
+  { name: 'PostgreSQL', level: 85, category: 'Database' },
+  { name: 'LLMs & RAG', level: 88, category: 'AI/ML' },
+  { name: 'LangChain', level: 85, category: 'AI/ML' },
+  { name: 'AWS Bedrock', level: 82, category: 'AI/ML' },
+  { name: 'Vector DBs', level: 85, category: 'AI/ML' },
+  { name: 'Docker', level: 80, category: 'Tools' },
+  { name: 'AWS', level: 82, category: 'Tools' },
+  { name: 'GCP', level: 78, category: 'Tools' },
+  { name: 'D3.js', level: 85, category: 'Frontend' }
 ];
 
 const categories = ['All', 'Frontend', 'Backend', 'AI/ML', 'Database', 'Tools'];

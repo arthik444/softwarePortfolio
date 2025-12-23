@@ -7,16 +7,16 @@ import { useScrollAnimation, useParallax } from "../hooks/use-scroll-animations"
 const projects = [
   {
     id: 1,
-    title: "myLeetSpace",
-    description: "A comprehensive coding interview preparation platform combining spaced repetition with systematic learning, serving 100+ active users with a 95% retention rate.",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    techStack: ["React", "FastAPI", "MongoDB", "Firebase", "Python", "TypeScript"],
+    title: "LeetSpace",
+    description: "A production-grade coding interview platform transforming ad-hoc practice into systematic learning via a custom spaced-repetition algorithm and active recall workflows. Live at myleetspace.com",
+    image: "/leetspace-hero.png",
+    techStack: ["React 19", "FastAPI", "MongoDB", "Firebase", "Python", "TypeScript"],
     category: "Full-Stack",
-    year: "2024",
+    year: "2025",
     status: "Active",
     metrics: { users: "100+", retention: "95%", problems: "1000+" },
     featured: true,
-    impact: "Designed and architected a full-stack platform implementing real-time synchronization and a custom spaced repetition algorithm for optimal problem retention.",
+    impact: "Architected a high-concurrency FastAPI backend with Async I/O and MongoDB (Motor), enabling complex features like solution version control, mistake tracking, and 'retry later' queues. Built a performance-optimized React 19 frontend featuring an in-browser code editor (CodeMirror), interactive activity heatmaps, and secure token-based authentication.",
     github: "https://github.com/arthik444/leetspace",
     challenges: [
       "Implementing efficient spaced repetition algorithm",
@@ -32,29 +32,29 @@ const projects = [
   {
     id: 2,
     title: "ProCheck",
-    description: "AI-Powered Medical Protocol Search & Generation. An intelligent medical protocol search and checklist generation platform powered by Elasticsearch Hybrid Search and Google Gemini AI.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    techStack: ["Elasticsearch", "Google Gemini AI", "Python", "FastAPI", "React"],
+    description: "Winner - Google Cloud x Elastic AI Hackathon. An AI-driven clinical intelligence platform allowing customizable PDF ingestion, automatic embedding generation, and real-time streaming of actionable medical checklists.",
+    image: "/procheck-hero.png",
+    techStack: ["Elasticsearch", "Google Gemini", "Python", "FastAPI", "React"],
     category: "AI/ML",
-    year: "2024",
+    year: "2025",
     status: "Active",
     metrics: { protocols: "500+", accuracy: "92%", searches: "5K+" },
     featured: true,
-    impact: "Streamlined medical protocol access with hybrid search combining semantic and keyword matching for healthcare professionals.",
+    impact: "Engineered Elasticsearch Hybrid Search by combining BM25 keyword precision with vector embeddings using Reciprocal Rank Fusion (RRF), significantly improving retrieval relevance for ambiguous medical queries. Integrated Google Gemini for query expansion and context-aware checklist generation, orchestrated via a FastAPI backend with Pydantic validation and Firebase for conversation persistence.",
     github: "https://github.com/arthik444/procheck"
   },
   {
     id: 3,
-    title: "Rift Analyzer",
-    description: "AI-powered League of Legends coaching companion that helps players reflect on a full year of matches, understand persistent habits, and plan their next climb using Riot Games API and Amazon Bedrock.",
+    title: "Rift Rewind (AI Coach)",
+    description: "Conversational coaching agent for League of Legends using AWS Bedrock (Claude 3) with function calling, enabling the AI to autonomously query real-time analytics to benchmark progress and generate practice plans.",
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    techStack: ["Python", "Amazon Bedrock", "Riot Games API", "React", "FastAPI"],
+    techStack: ["Python", "React", "AWS Bedrock", "Claude 3", "Riot Games API"],
     category: "AI/ML",
-    year: "2024",
+    year: "2025",
     status: "Active",
     metrics: { matches: "10K+", insights: "50+", users: "200+" },
     featured: true,
-    impact: "Combines match data with AI to deliver personalized, data-rich retrospectives that help players improve their gameplay.",
+    impact: "Engineered an end-to-end data pipeline that ingests raw Riot API match history to compute derived features (vision trends, objective control), synthesizing them into structured insights and narratives. Optimized application latency using aggressive client-side caching and pre-aggregated analytics, allowing users to navigate full-year performance timelines instantly.",
     github: "https://github.com/arthik444/LeagueOfLegends_AICoach"
   }
 ];
@@ -99,8 +99,12 @@ export function ProjectsSection() {
             Engineering Excellence
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mx-auto">
-            Production systems serving millions of users. Each project represents
-            months of architectural decisions, performance optimization, and iterative refinement.
+            Building intelligent systems at the intersection of AI and scalable architecture. 
+            From semantic search engines powered by multilingual embeddings achieving sub-150ms latency, 
+            to AI-driven medical protocol platforms combining Elasticsearch hybrid search with LLM reasoning, 
+            to offline-first mobile systems serving 500+ field engineers. Each project represents deep work 
+            in production ML, vector databases, distributed systems, and full-stack orchestration—where AI 
+            capabilities meet real-world infrastructure demands.
           </p>
         </motion.div>
 
@@ -219,10 +223,15 @@ export function ProjectsSection() {
           <p className="text-muted-foreground mb-6">
             Interested in the technical details behind these projects?
           </p>
-          <button className="surface surface-hover px-6 py-3 rounded-lg group">
+          <a 
+            href="https://github.com/arthik444" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="surface surface-hover px-6 py-3 rounded-lg group inline-flex items-center"
+          >
             View detailed case studies
             <ArrowUpRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

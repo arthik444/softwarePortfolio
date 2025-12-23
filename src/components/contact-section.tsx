@@ -28,15 +28,37 @@ export function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    toast.success("Message sent successfully. I'll get back to you within 24 hours.", {
-      duration: 5000,
-    });
-    
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
+    try {
+      // Send form data to Formspree or similar service
+      const response = await fetch('https://formspree.io/f/mgowrqkn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _replyto: formData.email,
+        }),
+      });
+
+      if (response.ok) {
+        toast.success("Thank you for reaching out! I've received your message and will get back to you within 24 hours.", {
+          duration: 5000,
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast.error("Oops! Something went wrong. Please try emailing me directly at karthikmasters444@gmail.com", {
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -265,6 +287,7 @@ export function ContactSection() {
               <Button 
                 variant="outline"
                 className="surface border-border/40 hover:border-foreground/40 group-hover:bg-foreground group-hover:text-background transition-all"
+                onClick={() => window.open('https://calendly.com/karthikmasters444', '_blank')}
               >
                 Schedule a call
                 <ArrowUpRight className="ml-2 w-3 h-3" />

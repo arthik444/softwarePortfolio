@@ -61,7 +61,7 @@ export function PageLoader({ children }: PageLoaderProps) {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <h1 className="text-3xl font-light tracking-wide">Alex Chen</h1>
+                <h1 className="text-3xl font-light tracking-wide">Karthik Reddy Vemireddy</h1>
                 <p className="text-muted-foreground mt-2">Full-Stack Engineer</p>
               </motion.div>
 

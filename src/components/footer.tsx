@@ -12,10 +12,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-xl font-light">Alex Chen</h3>
+            <h3 className="text-xl font-light">Karthik Reddy Vemireddy</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Senior Software Engineer specializing in AI systems, 
-              distributed infrastructure, and healthcare technology.
+              Software Engineer specializing in full-stack development, 
+              AI/ML systems, and data-driven applications.
             </p>
           </div>
 
@@ -45,9 +45,9 @@ export function Footer() {
             <h4 className="text-sm font-medium">Connect</h4>
             <div className="flex gap-4">
               {[
-                { icon: Github, href: "https://github.com", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:alex@example.com", label: "Email" }
+                { icon: Github, href: "https://github.com/arthik444", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/karthikvemireddy18/", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:karthikmasters444@gmail.com", label: "Email" }
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
@@ -67,11 +67,9 @@ export function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border/20">
           <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4 md:mb-0">
-            <span>© 2024 Alex Chen</span>
+            <span>© 2025 Karthik Reddy Vemireddy</span>
             <span>•</span>
-            <span>Built with React & Tailwind</span>
-            <span>•</span>
-            <span>San Francisco, CA</span>
+            <span>United States</span>
           </div>
           
           <motion.button
