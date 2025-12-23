@@ -9,10 +9,10 @@ const projects = [
     id: 1,
     title: "LeetSpace",
     description: "A production-grade coding interview platform transforming ad-hoc practice into systematic learning via a custom spaced-repetition algorithm and active recall workflows. Live at myleetspace.com",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "/leetspace-hero.png",
     techStack: ["React 19", "FastAPI", "MongoDB", "Firebase", "Python", "TypeScript"],
     category: "Full-Stack",
-    year: "2024",
+    year: "2025",
     status: "Active",
     metrics: { users: "100+", retention: "95%", problems: "1000+" },
     featured: true,
@@ -33,10 +33,10 @@ const projects = [
     id: 2,
     title: "ProCheck",
     description: "Winner - Google Cloud x Elastic AI Hackathon. An AI-driven clinical intelligence platform allowing customizable PDF ingestion, automatic embedding generation, and real-time streaming of actionable medical checklists.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "/procheck-hero.png",
     techStack: ["Elasticsearch", "Google Gemini", "Python", "FastAPI", "React"],
     category: "AI/ML",
-    year: "2024",
+    year: "2025",
     status: "Active",
     metrics: { protocols: "500+", accuracy: "92%", searches: "5K+" },
     featured: true,
@@ -50,7 +50,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     techStack: ["Python", "React", "AWS Bedrock", "Claude 3", "Riot Games API"],
     category: "AI/ML",
-    year: "2024",
+    year: "2025",
     status: "Active",
     metrics: { matches: "10K+", insights: "50+", users: "200+" },
     featured: true,
@@ -99,8 +99,12 @@ export function ProjectsSection() {
             Engineering Excellence
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mx-auto">
-            Production systems serving millions of users. Each project represents
-            months of architectural decisions, performance optimization, and iterative refinement.
+            Building intelligent systems at the intersection of AI and scalable architecture. 
+            From semantic search engines powered by multilingual embeddings achieving sub-150ms latency, 
+            to AI-driven medical protocol platforms combining Elasticsearch hybrid search with LLM reasoning, 
+            to offline-first mobile systems serving 500+ field engineers. Each project represents deep work 
+            in production ML, vector databases, distributed systems, and full-stack orchestration—where AI 
+            capabilities meet real-world infrastructure demands.
           </p>
         </motion.div>
 
@@ -219,10 +223,15 @@ export function ProjectsSection() {
           <p className="text-muted-foreground mb-6">
             Interested in the technical details behind these projects?
           </p>
-          <button className="surface surface-hover px-6 py-3 rounded-lg group">
+          <a 
+            href="https://github.com/arthik444" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="surface surface-hover px-6 py-3 rounded-lg group inline-flex items-center"
+          >
             View detailed case studies
             <ArrowUpRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

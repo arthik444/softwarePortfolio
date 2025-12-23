@@ -122,7 +122,13 @@ export function MobileMenu() {
               <Button 
                 variant="outline" 
                 className="w-full surface-hover"
-                onClick={handleLinkClick}
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/Karthik_Vemireddy_Resume.pdf';
+                  link.download = 'Karthik_Vemireddy_Resume.pdf';
+                  link.click();
+                  handleLinkClick();
+                }}
               >
                 Download Resume
               </Button>

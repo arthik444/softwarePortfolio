@@ -239,10 +239,14 @@ export function AboutSection() {
           <p className="text-muted-foreground mb-6">
             Interested in working together or learning more about my experience?
           </p>
-          <button className="surface surface-hover px-6 py-3 rounded-lg group">
+          <a 
+            href="/Karthik_Vemireddy_Resume.pdf" 
+            download="Karthik_Vemireddy_Resume.pdf"
+            className="surface surface-hover px-6 py-3 rounded-lg group inline-flex items-center"
+          >
             Download full resume
             <ArrowUpRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

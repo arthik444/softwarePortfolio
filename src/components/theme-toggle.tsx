@@ -37,7 +37,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="surface surface-hover rounded-full w-10 h-10 magnetic-hover"
+      className="surface surface-hover rounded-full w-10 h-10 magnetic-hover border border-border/40 bg-background/50 backdrop-blur-sm hover:border-foreground/40"
       aria-label="Toggle theme"
     >
       {isDark ? (

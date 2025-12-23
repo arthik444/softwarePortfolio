@@ -67,11 +67,9 @@ export function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border/20">
           <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4 md:mb-0">
-            <span>© 2024 Karthik Reddy Vemireddy</span>
+            <span>© 2025 Karthik Reddy Vemireddy</span>
             <span>•</span>
-            <span>Built with React & Tailwind</span>
-            <span>•</span>
-            <span>Tallahassee, FL</span>
+            <span>United States</span>
           </div>
           
           <motion.button

@@ -8,7 +8,7 @@ import professionalPortrait from "figma:asset/a32a1d651f5b7001a996f43fff5fc4f940
 const stats = [
   { value: "2+", label: "Years Experience" },
   { value: "5+", label: "Projects Delivered" },
-  { value: "10+", label: "GitHub Repos" },
+  { value: "20+", label: "GitHub Repos" },
   { value: "350+", label: "LeetCode Solved" }
 ];
 
@@ -56,7 +56,7 @@ export function HeroSection() {
                   Karthik Vemireddy
                 </h1>
                 <div className="text-lg text-muted-foreground font-light mono-font">
-                  Software Engineer • Tallahassee, FL
+                  Software Engineer • United States
                 </div>
               </div>
             </motion.div>
@@ -108,6 +108,10 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row gap-4 mb-16"
             >
               <MagneticButton
+                onClick={() => {
+                  const element = document.querySelector('#contact');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="group bg-foreground text-background hover:bg-foreground/90 px-8 py-3 rounded-md font-medium inline-flex items-center justify-center"
               >
                 Get in touch
@@ -115,6 +119,10 @@ export function HeroSection() {
               </MagneticButton>
 
               <MagneticButton
+                onClick={() => {
+                  const element = document.querySelector('#projects');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="group surface border-border/40 hover:border-foreground/20 px-8 py-3 rounded-md font-medium inline-flex items-center justify-center"
               >
                 View projects
