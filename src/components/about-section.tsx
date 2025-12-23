@@ -6,44 +6,44 @@ import { SkillsVisualization } from "./skills-visualization";
 const timeline = [
   {
     year: "2024",
-    title: "Research Assistant",
-    company: "BigLab @ Florida State University",
-    description: "Architected semantic search engine for clinical research using multilingual-e5-large embeddings and HNSW indexing, achieving <150ms query latency across 50K+ documents with 90% response time improvement. Engineered automated OCR pipeline processing medical PDFs to structured JSON, reducing manual review by 60%.",
+    title: "AI Research Engineer",
+    company: "Florida State University",
+    description: "Engineered a high-throughput document processing system using LLM agents, reducing manual data extraction time from hours to minutes for thousands of healthcare documents. Architected a dynamic model routing system that integrates multiple LLMs, programmatically selecting the optimal model for each task to balance cost, latency, and accuracy. Built a cancer-specific semantic search engine using HNSW graphs and multilingual embeddings, enabling discovery of synonymic medical terms and reducing research search time by 70%.",
     type: "work",
-    duration: "May 2024 – May 2025"
+    duration: "Aug 2023 – Present"
   },
   {
     year: "2023",
     title: "Master of Science in Computer Science",
     company: "Florida State University",
-    description: "Coursework: Analytical Methods, Software Engineering, Cryptography, Computer Architecture, Advanced Databases, Machine Learning, Artificial Intelligence",
+    description: "Coursework: Machine Learning, Artificial Intelligence, Advanced Databases, Software Engineering, Analytical Methods. GPA: 3.8/4.0",
     type: "education",
     duration: "Aug 2023 – May 2025"
   },
   {
     year: "2022",
-    title: "Software Developer",
-    company: "Maximl Labs Pvt. Ltd",
-    description: "Built offline-first mobile platform serving 500+ field engineers with 100% task continuity, reducing support tickets by 60% and enabling $2M+ in rural contracts. Developed real-time critical path dashboard using DAG algorithms and D3.js visualizations, preventing $500K+ in project overruns.",
+    title: "Software Development Engineer",
+    company: "Maximl India",
+    description: "Engineered a 'Dynamic Critical Path' feature using Angular, D3.js, and BFS graph algorithms, enabling project managers to visually identify bottlenecks and optimize plant shutdown timelines. Spearheaded the end-to-end development of a complex Shift Planning module, digitizing workforce management for large-scale industrial teams and significantly reducing manual scheduling errors. Delivered high-performance client interfaces across web and mobile ecosystems using Angular, React, Ionic, and Android Java.",
     type: "work",
     duration: "Jan 2022 – Jul 2023"
   },
   {
     year: "2018",
     title: "Bachelor of Engineering in Computer Engineering",
-    company: "International Institute of Information Technology",
-    description: "Coursework: Algorithms, Data Structures, Databases, Object-Oriented Programming, Operating Systems, Computer Networking",
+    company: "International Institute of Information Technology, Bhubaneswar",
+    description: "Coursework: Algorithms, Data Structures, Object-Oriented Programming, Databases, Operating Systems, Computer Networks, Software Engineering",
     type: "education",
     duration: "Aug 2018 – Jul 2022"
   }
 ];
 
 const skills = [
-  { category: "Languages", items: ["Python", "JavaScript", "TypeScript", "C/C++", "SQL"] },
-  { category: "Frontend", items: ["React", "Angular", "HTML/CSS", "Ionic", "Tailwind CSS"] },
-  { category: "Backend", items: ["Node.js", "FastAPI", "Express", "PostgreSQL", "MongoDB"] },
-  { category: "ML/AI", items: ["PyTorch", "scikit-learn", "Hugging Face", "Vector DBs"] },
-  { category: "Tools", items: ["Git", "Docker", "AWS", "Redis", "D3.js"] }
+  { category: "Languages", items: ["Python", "TypeScript", "JavaScript", "Java", "SQL", "C++"] },
+  { category: "Frontend", items: ["React 19", "Angular", "Next.js", "Tailwind CSS", "Redux", "D3.js"] },
+  { category: "Backend", items: ["FastAPI", "Node.js", "Express.js", "REST APIs", "MongoDB", "PostgreSQL", "Firebase"] },
+  { category: "AI & ML", items: ["LLMs", "RAG", "LangChain", "AWS Bedrock", "Google Gemini", "Vector DBs", "OCR"] },
+  { category: "DevOps & Cloud", items: ["AWS", "GCP", "Docker", "Git", "Jira", "Lambda", "S3"] }
 ];
 
 export function AboutSection() {
@@ -67,7 +67,7 @@ export function AboutSection() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-light text-gradient mb-6">
-            Building the Future
+            Engineering Journey
           </h2>
         </motion.div>
 
@@ -116,21 +116,24 @@ export function AboutSection() {
               {/* Bio */}
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-2xl font-light mb-6">Philosophy</h3>
+                  <h3 className="text-2xl font-light mb-6">Background</h3>
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
                     <p>
-                      I believe in building systems that solve real problems. Every line of code 
-                      should serve a purpose, every architecture decision should scale, and every 
-                      product should improve lives.
+                      Software Engineer with 2+ years of industry experience building scalable full-stack 
+                      applications and AI-powered systems. Currently pursuing a Master's in Computer Science 
+                      at Florida State University while working as an AI Research Engineer.
                     </p>
                     <p>
-                      My approach combines deep technical expertise with practical experience. 
-                      I've spent years in the trenches, debugging production systems at 3 AM, 
-                      optimizing database queries, and mentoring junior engineers.
+                      My professional journey began at Maximl India, where I engineered critical production 
+                      features using Angular, React, and graph algorithms—delivering solutions that optimized 
+                      industrial workflows and enabled multi-million dollar contracts. I built offline-first 
+                      mobile platforms and real-time dashboards with D3.js that prevented project overruns.
                     </p>
                     <p>
-                      Currently focused on AI applications in healthcare, where the intersection 
-                      of cutting-edge technology and human impact creates the most meaningful work.
+                      In my research role, I've architected LLM-powered document processing systems that 
+                      reduced manual work from hours to minutes, built semantic search engines with HNSW 
+                      indexing achieving 70% faster retrieval, and designed dynamic model routing systems 
+                      that balance cost, latency, and accuracy across multiple AI models.
                     </p>
                   </div>
                 </div>
@@ -140,10 +143,10 @@ export function AboutSection() {
                   <h4 className="text-lg font-light mb-4">Current Focus</h4>
                   <div className="space-y-3">
                     {[
-                      "AI-powered medical diagnostics",
-                      "Distributed system architecture",
-                      "Production ML operations",
-                      "Engineering team leadership"
+                      "LLM Agents & Agentic Workflows",
+                      "Retrieval-Augmented Generation (RAG)",
+                      "Full-Stack AI Applications",
+                      "Vector Databases & Semantic Search"
                     ].map((focus, index) => (
                       <motion.div
                         key={focus}

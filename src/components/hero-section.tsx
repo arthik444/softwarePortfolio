@@ -8,15 +8,15 @@ import professionalPortrait from "figma:asset/a32a1d651f5b7001a996f43fff5fc4f940
 const stats = [
   { value: "2+", label: "Years Experience" },
   { value: "5+", label: "Projects Delivered" },
-  { value: "10", label: "GitHub Repos" },
+  { value: "10+", label: "GitHub Repos" },
   { value: "350+", label: "LeetCode Solved" }
 ];
 
 const specializations = [
   "Full-Stack Development",
-  "Semantic Search & OCR",
+  "AI & Machine Learning",
   "React & Angular",
-  "Data-Driven Applications"
+  "Cloud & DevOps"
 ];
 
 export function HeroSection() {
@@ -91,12 +91,13 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-12"
             >
-              Proactive and highly motivated Software Engineer with 2+ years of industry experience
-              in full-stack development, specializing in Angular, React, and data-driven web applications.
-              Proven ability to build scalable solutions, from frontend UIs to backend integrations.
-              Recent research experience in semantic search, OCR-based data extraction, and MongoDB-backed
-              search engines. Strong foundation in algorithms and problem-solving, honed through
-              competitive programming.
+              I build software that bridges the gap between complex engineering and practical utility.
+              In the current AI landscape, I focus on the architecture behind the intelligence—orchestrating 
+              agentic workflows, designing retrieval protocols, and building the full-stack infrastructure 
+              required to make these systems reliable at scale. I specialize in the end-to-end lifecycle, 
+              from algorithmic design and database optimization to shipping modern, performance-driven interfaces. 
+              My approach is rooted in building systems that aren't just intelligent, but are scalable, 
+              secure, and user-centric.
             </motion.p>
 
             {/* Actions */}
@@ -172,7 +173,7 @@ export function HeroSection() {
                   <div className="w-full h-full rounded-2xl overflow-hidden">
                     <ImageWithFallback
                       src={professionalPortrait}
-                      alt="Alex Chen"
+                      alt="Karthik Reddy Vemireddy"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
