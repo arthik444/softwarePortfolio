@@ -1,0 +1,12 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "prod": true,
+      "main": false,
+      "feat/moreUI": false
+    }
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}
