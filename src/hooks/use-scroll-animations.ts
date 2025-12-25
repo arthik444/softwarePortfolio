@@ -5,7 +5,8 @@ export function useScrollAnimation() {
     const ref = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start end", "end start"]
+        offset: ["start end", "end start"],
+        container: undefined // Use window as container
     });
 
     return { ref, scrollYProgress };
