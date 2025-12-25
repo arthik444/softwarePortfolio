@@ -36,9 +36,25 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Manage body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   const scrollToSection = (href: string) => {
+    // Close the menu first and re-enable scroll
     setIsOpen(false);
+    document.body.style.overflow = "unset";
     
+    // Small delay to let menu close, then scroll
     setTimeout(() => {
       if (href === "#") {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -48,7 +64,7 @@ export function Navigation() {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }
-    }, 300);
+    }, 100);
   };
 
   return (
