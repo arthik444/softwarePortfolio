@@ -48,19 +48,19 @@ export default function App() {
 
         {/* Main Content */}
         <main className="relative z-10">
-          <section id="hero">
+          <section id="hero" className="relative">
             <HeroSection />
           </section>
 
-          <section id="projects">
+          <section id="projects" className="relative">
             <ProjectsSection />
           </section>
 
-          <section id="about">
+          <section id="about" className="relative">
             <AboutSection />
           </section>
 
-          <section id="contact">
+          <section id="contact" className="relative">
             <ContactSection />
           </section>
         </main>

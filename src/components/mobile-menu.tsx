@@ -32,6 +32,14 @@ export function MobileMenu() {
     setIsOpen(false);
   };
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    handleLinkClick();
+  };
+
   return (
     <>
       {/* Menu Toggle Button */}
@@ -102,14 +110,13 @@ export function MobileMenu() {
                     duration: 0.3 
                   }}
                 >
-                  <a
-                    href={item.href}
-                    onClick={handleLinkClick}
-                    className="flex items-center justify-between p-3 rounded-lg surface-hover transition-all group"
+                  <button
+                    onClick={() => scrollToSection(item.href)}
+                    className="flex items-center justify-between p-3 rounded-lg surface-hover transition-all group w-full text-left"
                   >
                     <span className="font-medium">{item.label}</span>
                     <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
+                  </button>
                 </motion.li>
               ))}
             </ul>
@@ -136,7 +143,7 @@ export function MobileMenu() {
               {/* Contact CTA */}
               <Button 
                 className="w-full magnetic-hover"
-                onClick={handleLinkClick}
+                onClick={() => scrollToSection('#contact')}
               >
                 Let's Connect
               </Button>
@@ -144,14 +151,20 @@ export function MobileMenu() {
 
             {/* Social Links */}
             <div className="flex justify-center gap-4 mt-6">
-              {["GitHub", "LinkedIn", "Twitter"].map((social) => (
+              {[
+                { name: "GitHub", url: "https://github.com/arthik444" },
+                { name: "LinkedIn", url: "https://www.linkedin.com/in/karthikvemireddy18/" },
+                { name: "Email", url: "mailto:karthikmasters444@gmail.com" }
+              ].map((social) => (
                 <a
-                  key={social}
-                  href="#"
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                   onClick={handleLinkClick}
                 >
-                  {social}
+                  {social.name}
                 </a>
               ))}
             </div>
