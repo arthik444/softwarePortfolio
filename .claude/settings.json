@@ -3,7 +3,11 @@
     "allow": [
       "WebFetch(domain:devpost.com)",
       "WebFetch(domain:blog.google)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(npm run *)"
+    ],
+    "additionalDirectories": [
+      "/Users/karthik/Desktop/personalPortfolio/.github"
     ]
   }
 }
