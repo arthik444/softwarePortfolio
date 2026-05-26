@@ -140,7 +140,7 @@ export function AchievementsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="surface rounded-xl p-5 text-center"
+              className="surface rounded-xl p-6 text-center"
             >
               <div className="text-2xl md:text-3xl font-light text-gradient mb-1">
                 {stat.value}
@@ -183,7 +183,7 @@ export function AchievementsSection() {
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <div
-                        className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-foreground/5 border border-border/30 mb-3 ${win.accent}`}
+                        className={`inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-foreground/5 border border-border/30 mb-3 ${win.accent}`}
                       >
                         <Trophy className="w-3 h-3" />
                         {win.prize}
@@ -199,25 +199,29 @@ export function AchievementsSection() {
                   </p>
 
                   {/* Scale stats */}
-                  <div className="grid grid-cols-3 gap-2 mb-5 py-4 border-t border-b border-border/20">
-                    <div className="text-center">
-                      <div className="flex items-center justify-center gap-1 mb-1">
-                        <Users className="w-3 h-3 text-muted-foreground" />
+                  <div className="mb-5 py-3 border-t border-b border-border/20 flex flex-col gap-3">
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="text-center">
+                        <div className="flex items-center justify-center gap-1.5 mb-1">
+                          <Users className="w-3 h-3 text-muted-foreground" />
+                          <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Participants</span>
+                        </div>
+                        <div className="text-sm font-light text-foreground">{win.stats.participants}</div>
                       </div>
-                      <div className="text-sm font-light">{win.stats.participants}</div>
-                      <div className="text-xs text-muted-foreground">participants</div>
-                    </div>
-                    <div className="text-center border-x border-border/20">
-                      <div className="flex items-center justify-center gap-1 mb-1">
-                        <Zap className="w-3 h-3 text-muted-foreground" />
+                      <div className="text-center border-l border-border/20">
+                        <div className="flex items-center justify-center gap-1.5 mb-1">
+                          <Zap className="w-3 h-3 text-muted-foreground" />
+                          <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Prize Pool</span>
+                        </div>
+                        <div className="text-sm font-light text-foreground">{win.stats.pool}</div>
                       </div>
-                      <div className="text-sm font-light">{win.stats.pool}</div>
-                      <div className="text-xs text-muted-foreground">prize pool</div>
                     </div>
-                    <div className="text-center">
-                      <div className={`w-2 h-2 rounded-full ${win.dot} mx-auto mb-1`} />
-                      <div className="text-xs font-light leading-tight">{win.stats.award}</div>
-                      <div className="text-xs text-muted-foreground">awarded</div>
+                    <div className="pt-2.5 border-t border-border/10 text-center">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-foreground/5 border border-border/10 text-xs">
+                        <div className={`w-1.5 h-1.5 rounded-full ${win.dot} animate-pulse`} />
+                        <span className="text-muted-foreground">Awarded:</span>
+                        <span className={`font-medium ${win.accent}`}>{win.stats.award}</span>
+                      </div>
                     </div>
                   </div>
 
@@ -226,7 +230,7 @@ export function AchievementsSection() {
                     {win.tech.map((t) => (
                       <span
                         key={t}
-                        className="text-xs px-2 py-0.5 bg-foreground/5 rounded-full border border-border/20"
+                        className="text-xs px-3 py-1 bg-foreground/5 rounded-full border border-border/20"
                       >
                         {t}
                       </span>
@@ -234,7 +238,7 @@ export function AchievementsSection() {
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-3">
+                  <div className="flex gap-4 pt-4 border-t border-border/10 mt-auto">
                     <a
                       href={win.links.project}
                       target="_blank"
@@ -271,7 +275,7 @@ export function AchievementsSection() {
           >
             <BookOpen className="w-5 h-5 text-violet-400" />
             <h3 className="text-2xl font-light">Research Publications</h3>
-            <span className="text-xs text-muted-foreground px-2 py-0.5 rounded-full border border-border/30 bg-foreground/5 ml-1">
+            <span className="text-xs text-muted-foreground px-3 py-1 rounded-full border border-border/30 bg-foreground/5 ml-1">
               Both accepted · forthcoming
             </span>
           </motion.div>
@@ -284,44 +288,46 @@ export function AchievementsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className={`relative surface rounded-2xl overflow-hidden border ${pub.border} group`}
+                className={`relative surface rounded-2xl overflow-hidden border ${pub.border} group flex flex-col h-full`}
               >
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${pub.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
                 />
 
-                <div className="relative p-6">
-                  {/* Conference badge */}
-                  <div className="flex items-start justify-between mb-5">
-                    <div>
-                      <div className="flex items-center gap-2 mb-3">
-                        <span
-                          className={`text-lg font-semibold tracking-tight ${pub.accent}`}
-                        >
-                          {pub.venue}
-                        </span>
-                        <span className="text-xs text-muted-foreground border border-border/30 rounded px-1.5 py-0.5">
-                          {pub.track}
-                        </span>
-                        <span className="text-xs text-emerald-400 border border-emerald-500/30 rounded px-1.5 py-0.5">
-                          {pub.status}
-                        </span>
-                      </div>
-                      <h4 className="text-xl font-light mb-1">{pub.title}</h4>
-                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                        <MapPin className="w-3 h-3" />
-                        {pub.location}
+                <div className="relative p-6 flex flex-col h-full justify-between flex-grow">
+                  <div>
+                    {/* Conference badge */}
+                    <div className="flex items-start justify-between mb-5">
+                      <div>
+                        <div className="flex items-center gap-2 mb-3">
+                          <span
+                            className={`text-lg font-semibold tracking-tight ${pub.accent}`}
+                          >
+                            {pub.venue}
+                          </span>
+                          <span className="text-xs text-muted-foreground border border-border/30 rounded px-3 py-1">
+                            {pub.track}
+                          </span>
+                          <span className="text-xs text-emerald-400 border border-emerald-500/30 rounded px-3 py-1">
+                            {pub.status}
+                          </span>
+                        </div>
+                        <h4 className="text-xl font-light mb-1">{pub.title}</h4>
+                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                          <MapPin className="w-3 h-3" />
+                          {pub.location}
+                        </div>
                       </div>
                     </div>
+
+                    {/* Description */}
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                      {pub.description}
+                    </p>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                    {pub.description}
-                  </p>
-
                   {/* Affiliation */}
-                  <div className="pt-4 border-t border-border/20">
+                  <div className="pt-4 border-t border-border/20 mt-auto">
                     <p className="text-xs text-muted-foreground">
                       <span className="text-foreground/70">{pub.group}</span>
                       {" · "}
