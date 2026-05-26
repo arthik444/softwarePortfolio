@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Home, Briefcase, User, Mail } from "lucide-react";
+import { Home, Trophy, Briefcase, User, Mail } from "lucide-react";
 
 const navItems = [
     { id: "hero", label: "Home", icon: Home },
+    { id: "achievements", label: "Wins", icon: Trophy },
     { id: "projects", label: "Projects", icon: Briefcase },
     { id: "about", label: "About", icon: User },
     { id: "contact", label: "Contact", icon: Mail },

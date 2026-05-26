@@ -5,6 +5,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { ThemeToggle } from "./ui/theme-toggle";
 
 const navItems = [
+  { name: "Wins", href: "#achievements" },
   { name: "Work", href: "#projects" },
   { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
@@ -19,7 +20,7 @@ export function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ["projects", "about", "contact"];
+      const sections = ["achievements", "projects", "about", "contact"];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {

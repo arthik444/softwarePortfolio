@@ -1,5 +1,6 @@
 import { Navigation } from "./components/navigation";
 import { HeroSection } from "./components/hero-section";
+import { AchievementsSection } from "./components/achievements-section";
 import { ProjectsSection } from "./components/projects-section";
 import { AboutSection } from "./components/about-section";
 import { ContactSection } from "./components/contact-section";
@@ -50,6 +51,10 @@ export default function App() {
         <main className="relative z-10">
           <section id="hero" className="relative">
             <HeroSection />
+          </section>
+
+          <section id="achievements" className="relative">
+            <AchievementsSection />
           </section>
 
           <section id="projects" className="relative">

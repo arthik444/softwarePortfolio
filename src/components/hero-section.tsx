@@ -6,9 +6,9 @@ import { MagneticButton } from "./ui/magnetic-button";
 import professionalPortrait from "figma:asset/a32a1d651f5b7001a996f43fff5fc4f940eef324.png";
 
 const stats = [
-  { value: "2+", label: "Years Experience" },
-  { value: "5+", label: "Projects Delivered" },
-  { value: "20+", label: "GitHub Repos" },
+  { value: "3×", label: "Hackathon Winner" },
+  { value: "2", label: "Research Papers Accepted" },
+  { value: "6,200+", label: "Global Competitors" },
   { value: "350+", label: "LeetCode Solved" }
 ];
 

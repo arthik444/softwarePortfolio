@@ -8,7 +8,7 @@ const projects = [
   {
     id: 1,
     title: "LeetSpace",
-    description: "A production-grade coding interview platform transforming ad-hoc practice into systematic learning via a custom spaced-repetition algorithm and active recall workflows. Live at myleetspace.com",
+    description: "Production-grade coding interview prep platform built around spaced-repetition scheduling and active recall. Tracks every solution attempt, surfaces problems at optimal review intervals, and identifies weak topic clusters from mistake history. Live at myleetspace.com",
     image: "/leetspace-hero.png",
     techStack: ["React 19", "FastAPI", "MongoDB", "Firebase", "Python", "TypeScript"],
     category: "Full-Stack",
@@ -18,6 +18,7 @@ const projects = [
     featured: true,
     impact: "Architected a high-concurrency FastAPI backend with Async I/O and MongoDB (Motor), enabling complex features like solution version control, mistake tracking, and 'retry later' queues. Built a performance-optimized React 19 frontend featuring an in-browser code editor (CodeMirror), interactive activity heatmaps, and secure token-based authentication.",
     github: "https://github.com/arthik444/leetspace",
+    liveUrl: "https://myleetspace.com/",
     challenges: [
       "Implementing efficient spaced repetition algorithm",
       "Real-time data synchronization across devices",
@@ -31,35 +32,67 @@ const projects = [
   },
   {
     id: 2,
-    title: "ProCheck",
-    description: "Winner - Google Cloud x Elastic AI Hackathon. An AI-driven clinical intelligence platform allowing customizable PDF ingestion, automatic embedding generation, and real-time streaming of actionable medical checklists.",
-    image: "/procheck-hero.png",
-    techStack: ["Elasticsearch", "Google Gemini", "Python", "FastAPI", "React"],
-    category: "AI/ML",
+    title: "BillBeam",
+    description: "AI-powered bill splitting web app. Upload a receipt photo and Gemini 2.0 Flash extracts every line item, price, tax, and tip — then the app handles per-person assignment and full settlement math including discounts. Live at billbeam.pro",
+    image: "/billbeam-hero.png",
+    techStack: ["React 19", "TypeScript", "Google Gemini 2.0 Flash", "Firebase", "Tailwind CSS"],
+    category: "Full-Stack",
     year: "2025",
     status: "Active",
-    metrics: { protocols: "500+", accuracy: "92%", searches: "5K+" },
+    metrics: { accuracy: "95%+", formats: "Multi-format", auth: "Google Auth" },
     featured: true,
-    impact: "Engineered Elasticsearch Hybrid Search by combining BM25 keyword precision with vector embeddings using Reciprocal Rank Fusion (RRF), significantly improving retrieval relevance for ambiguous medical queries. Integrated Google Gemini for query expansion and context-aware checklist generation, orchestrated via a FastAPI backend with Pydantic validation and Firebase for conversation persistence.",
-    github: "https://github.com/arthik444/procheck"
+    impact: "Gemini 2.0 Flash performs receipt authenticity validation, structured line-item extraction, discount identification, and financial amount parsing (subtotal, tax, tip, total). Firestore persistence enables receipt history and reusable saved friend groups. Haptic-feedback-optimized mobile UX with Framer Motion animations throughout.",
+    github: "https://github.com/arthik444/preSplit",
+    liveUrl: "https://billbeam.pro/",
   },
   {
     id: 3,
-    title: "Rift Rewind (AI Coach)",
-    description: "Conversational coaching agent for League of Legends using AWS Bedrock (Claude 3) with function calling, enabling the AI to autonomously query real-time analytics to benchmark progress and generate practice plans.",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    techStack: ["Python", "React", "AWS Bedrock", "Claude 3", "Riot Games API"],
+    title: "VidMod",
+    description: "Autonomous AI agent that watches a video, identifies compliance violations (brand safety, profanity, regulatory issues), and remediates them end-to-end through five action pipelines: blur, pixelate, generative replacement, voice-swapped dubbing, and beep. Every edit is grounded in a specific policy clause.",
+    image: "/vidmod-hero.png",
+    techStack: ["Gemini 3.0 Pro", "SAM3", "Runway Gen-4", "ElevenLabs", "FastAPI", "Cloud Run"],
     category: "AI/ML",
     year: "2025",
     status: "Active",
-    metrics: { matches: "10K+", insights: "50+", users: "200+" },
+    metrics: { pipelines: "5", model: "Gemini 3.0", arch: "Agentic" },
     featured: true,
-    impact: "Engineered an end-to-end data pipeline that ingests raw Riot API match history to compute derived features (vision trends, objective control), synthesizing them into structured insights and narratives. Optimized application latency using aggressive client-side caching and pre-aggregated analytics, allowing users to navigate full-year performance timelines instantly.",
-    github: "https://github.com/arthik444/LeagueOfLegends_AICoach"
+    impact: "Leverages Gemini's native video understanding across its 1M+ token context window for temporal consistency detection that frame-sampling cannot achieve. SAM3 tracks objects across frames for blur/pixelate; Runway Gen-4 inpaints brand-safe replacements; custom Demucs pipeline separates vocals/background for ElevenLabs voice cloning. Marathon Agent pattern with state persistence surviving server restarts.",
+    github: "https://github.com/arthik444/VidMod",
+    liveUrl: "https://www.youtube.com/watch?v=Yl4bevvtUls",
+  },
+  {
+    id: 4,
+    title: "ProCheck",
+    description: "2nd Place — Google Cloud × Elastic AI Hackathon (2,732 participants, $50K prize pool). AI-driven clinical intelligence platform: PDF ingestion, automatic embedding generation, and real-time streaming of actionable medical checklists. Reduced protocol lookup from 3–5 min to under 10 seconds.",
+    image: "/procheck-hero.png",
+    techStack: ["Elasticsearch", "Google Gemini", "Python", "FastAPI", "React", "Firebase"],
+    category: "AI/ML",
+    year: "2025",
+    status: "Active",
+    metrics: { protocols: "134", accuracy: "85%", latency: "450ms cached" },
+    featured: true,
+    impact: "Engineered Elasticsearch Hybrid Search combining BM25 keyword precision with dense vector embeddings via Reciprocal Rank Fusion (RRF), achieving 85% first-try accuracy on ambiguous medical queries. Google Gemini handles query expansion and context-aware checklist generation. 85% cache hit rate via LRU + Firestore caching layer.",
+    github: "https://github.com/arthik444/procheck",
+    liveUrl: "https://devpost.com/software/procheck",
+  },
+  {
+    id: 5,
+    title: "Rift Analyzer",
+    description: "2nd Place — AWS × Riot Games Rift Rewind Hackathon (2,636 participants, $26K prize pool). Agentic coaching system on Amazon Bedrock (Claude 3 Sonnet) with multi-step tool-calling. Computes 20+ engineered metrics — objective conversion, vision control, gold-swing deltas — with z-score outlier detection.",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    techStack: ["AWS Bedrock", "Claude 3 Sonnet", "Python", "FastAPI", "React", "DynamoDB"],
+    category: "AI/ML",
+    year: "2025",
+    status: "Active",
+    metrics: { cacheImprovement: "97%", responseTime: "<200ms", metrics: "20+" },
+    featured: true,
+    impact: "End-to-end data pipeline ingests raw Riot API match history to compute derived features (vision trends, objective control, gold-swing deltas) with rolling-window aggregation and z-score outlier detection. 97% page-load improvement via aggressive client-side caching (16s → <0.5s). Late-game vision score identified as strongest rank predictor (r=0.67).",
+    github: "https://github.com/arthik444/LeagueOfLegends_AICoach",
+    liveUrl: "https://devpost.com/software/rift-analyser",
   }
 ];
 
-const categories = ["All", "Full-Stack", "AI/ML"];
+const categories = ["All", "AI/ML", "Full-Stack"];
 
 export function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -141,7 +174,7 @@ export function ProjectsSection() {
             >
               Featured Projects
             </motion.h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {featuredProjects.map((project, index) => (
                 <EnhancedProjectCard
                   key={project.id}
