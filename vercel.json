@@ -1,12 +1,15 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": "vite",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
   "git": {
     "deploymentEnabled": {
       "prod": true,
-      "main": false,
-      "feat/moreUI": false
+      "main": false
     }
-  },
-  "buildCommand": "npm run build",
-  "outputDirectory": "build",
-  "framework": "vite"
+  }
 }
